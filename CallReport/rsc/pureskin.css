@@ -1077,3 +1077,17 @@ div{
 .math-result {
     color: red;
 }
+
+.content {
+    margin:0 auto;
+    max-width:800px;
+}
+
+.pure-skin-gmap textarea{
+    max-width:66%;
+}
+
+.pure-skin-gmap .pure-form-aligned .mid-form{
+    margin-top:0;
+    margin-bottom:0.5em;
+}
