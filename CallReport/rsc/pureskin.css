@@ -1091,3 +1091,7 @@ div{
     margin-top:0;
     margin-bottom:0.5em;
 }
+
+.pure-skin-gmap .pure-form-aligned .highlight-field{
+    border:1.5px solid red;
+}

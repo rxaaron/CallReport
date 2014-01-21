@@ -55,7 +55,7 @@
                         </div>
                         <div class="pure-control-group">
                             <label for="detail">Detail:</label>
-                            <textarea id="detail" class="pure-input-2-3" name="detail" required></textarea>
+                            <textarea id="detail" class="pure-input-2-3" name="detail"></textarea>
                         </div>
                         <div class="pure-controls mid-form">
                             <label for="nhfault" class="pure-checkbox"><input type="checkbox" id="nhfault" name="nhfault">  Nursing Home's Fault</label>
