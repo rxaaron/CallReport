@@ -15,7 +15,7 @@
                 <a href="#" class="pure-menu-heading">On Call Data</a>
                 <ul>
                     <li class="pure-menu-selected"><a href="#">Entry</a></li>
-                    <li><a href="#">Reports</a></li>
+                    <li><a href="reports.php">Reports</a></li>
                 </ul>
             </div>
             <div class="content">
