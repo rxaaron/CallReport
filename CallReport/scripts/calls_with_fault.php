@@ -13,7 +13,7 @@
         while($results=$select->fetch_object()){
             $labels [] = $results->HomeName;
             $data [] = array(intval($results->NursingHomeFault),intval($results->EncoreFault));
-            $tooltips [] = array("Nursing Home Fault","Our Fault");
+            $tooltips [] = array("Nursing Home Fault","Encore Fault");
             
         }
         $json_results ["labels"] = $labels;
