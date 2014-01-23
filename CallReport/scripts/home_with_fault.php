@@ -7,18 +7,18 @@
     if($select){
         $json_results = array();
         $labels = array();
-        $data = array();
-        $tooltips = array();
-        $key = array("Nursing Home Fault","Our Fault");
+        $dataleft = array();
+        $dataright = array();
         while($results=$select->fetch_object()){
             $labels [] = $results->HomeName;
-            $data [] = array(intval($results->NursingHomeFault),intval($results->EncoreFault));
-            $tooltips [] = array("Nursing Home Fault","Encore Fault");
-            
+            $dataleft [] = intval($results->NursingHomeFault);
+            $dataright [] = intval($results->EncoreFault);
         }
         $json_results ["labels"] = $labels;
-        $json_results ["datas"] = $data;
-        $json_results ["tooltips"] = $tooltips;
-        $json_results ["key"] = $key;
+        $json_results ["left"] = $dataleft;
+        $json_results ["right"] = $dataright;
+        $json_results ["title.left"] = "Nursing Home Fault";
+        $json_results ["title.right"] = "Encore Fault";
+        $json_results ["gutter.center"] = 150;
         echo json_encode($json_results,JSON_PRETTY_PRINT);
     }

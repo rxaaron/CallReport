@@ -1095,3 +1095,7 @@ div{
 .pure-skin-gmap .pure-form-aligned .highlight-field{
     border:1.5px solid red;
 }
+
+.pure-skin-gmap .pure-form-aligned select :disabled{
+    color:red;
+}
