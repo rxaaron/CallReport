@@ -1,5 +1,26 @@
-        document.getElementById('reportlist').addEventListener('change',Chart,false);
-        document.getElementById('graphpng').addEventListener('click',CreatePNG,false);
+        AddListeners();
+        
+        function AddListeners(){
+            document.getElementById('reportlist').addEventListener('change',Chart,false);
+            document.getElementById('graphpng').addEventListener('click',CreatePNG,false);
+            var radios = document.getElementsByName('rpt');
+            for(var i = 0, length = radios.length; i < length; i++){
+                document.getElementById(radios[i].id).addEventListener('change',RptSwitch,false);
+            }
+            document.getElementById('filter').addEventListener('click',ShowHide,false);
+            document.getElementById('sort').addEventListener('click',ShowHide,false);
+        };        
+        function ShowHide(event){
+            var boxname = this.id + 'box';
+            if(this.innerHTML==='Show'){
+                this.innerHTML='Hide';
+                document.getElementById(boxname).className='pure-g-r collapsing';
+            }else{
+                this.innerHTML='Show';
+                document.getElementById(boxname).className='pure-g-r collapsing shrunk';
+            }
+            event.preventDefault();
+        };
         function Chart(){
             RGraph.Reset(document.getElementById('myCanvas'));
             if(this.value!=='0'){
@@ -31,5 +52,16 @@
         function CreatePNG(event){
             RGraph.showPNG(document.getElementById('myCanvas'),event);
             event.preventDefault();
+        };
+        function RptSwitch(){
+            var radios = document.getElementsByName('rpt');
+            for(var i = 0, length = radios.length; i < length; i++){
+                if(radios[i].checked){
+                    var divs = radios[i].value.split(",");
+                    document.getElementById(divs[0]).className="";
+                    document.getElementById(divs[1]).className="info-hidden";
+                    break;
+                }
+            }
         };
         

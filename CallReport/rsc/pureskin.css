@@ -1099,3 +1099,19 @@ div{
 .pure-skin-gmap .pure-form-aligned select :disabled{
     color:red;
 }
+
+.pure-skin-gmap .collapsing {
+    padding:5px;
+    border: 1px solid gray;
+    border-radius:5px;
+    transition: height 0.5s ease-in-out;
+    -webkit-transition: height 0.5s ease-in-out;
+    -moz-transition: height 0.5s ease-in-out;
+    -o-transition: height 0.5s ease-in-out;
+}
+
+.pure-skin-gmap .shrunk {
+    overflow:hidden;
+    height:1px;
+    padding:0;
+}

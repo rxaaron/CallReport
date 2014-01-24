@@ -17,6 +17,26 @@
                 </ul>
             </div>
             <div class="content">
+                <br>
+                <div class="pure-g">
+                    <div class="pure-u-1-4">
+                        &nbsp;
+                    </div>
+                    <div class="pure-u-1-4">
+                        <label for="radiograph" class="pure-radio">
+                            <input id="radiograph" value="rptgraphs,rpttables" type="radio" name="rpt" checked> Graphs
+                        </label>
+                    </div>
+                    <div class="pure-u-1-4">
+                        <label for="radiotable" class="pure-radio">
+                            <input id="radiotable" value="rpttables,rptgraphs" type="radio" name="rpt"> Tables
+                        </label>
+                    </div>
+                    <div class="pure-u-1-4">
+                        &nbsp;
+                    </div>
+                </div>
+                <div id="rptgraphs">
                 <form class="pure-form pure-form-aligned">
                     <legend>Graphs</legend>
                     <fieldset>
@@ -43,18 +63,118 @@
                         </div>
                         <button id="graphpng" disabled>Save Graph As Picture</button>
                     </fieldset>
-                    <canvas id="myCanvas" width="600" height="250">[No canvas support]</canvas>
+                    <canvas id="myCanvas" width="800" height="350">[No canvas support]</canvas>
                     
                 </form>
-                <form class="pure-form pure-form-aligned">
+                </div>
+                <div id="rpttables" class="info-hidden">
+                <form class="pure-form pure-form-stacked">
                     <legend>Tables</legend>
                     <fieldset>
-                        <div class="pure-control-group">
-                            
+                        <h5>Filters: <button id="filter">Show</button></h5>
+                        <div id="filterbox" class="pure-g-r collapsing shrunk">
+                            <div class="pure-u-1-3">
+                                <label for="startdate">Start Date:</label>
+                                <input type="date" id="startdate" value="2014-01-01" class="pure-input-1">
+                            </div>
+                            <div class="pure-u-1-3">
+                                <label for="enddate">End Date:</label>
+                                <input type="date" id="enddate" value="2014-12-31" class="pure-input-1">
+                            </div>
+                            <div class="pure-u-1-12">
+                                &nbsp;
+                            </div>
+                            <div class="pure-u-1-4">
+                                <label for="nofault" class="pure-radio">
+                                    <input id="nofault" value="0" checked type="radio" name="faults"> Any
+                                </label>
+                                <label for="nhfault" class="pure-radio">
+                                    <input id="nhfault" value="1" type="radio" name="faults"> Nursing Home at Fault Only
+                                </label>
+                                <label for="ourfault" class="pure-radio">
+                                    <input id="ourfault" value="2" type="radio" name="faults"> Encore at Fault Only
+                                </label>
+                            </div>
+                            <div class="pure-u-1-3">
+                                <div class="pure-control-group">
+                                    <label for="nursinghome">Nursing Home:</label>
+                                    <select class="pure-input-1" id="nursinghome" name="nursinghome">
+                                        <option value="0">All</option>
+                                        <?php include_once('scripts/nhlist.php'); ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="pure-u-1-3">
+                                <div class="pure-control-group">
+                                    <label for="rph">Pharmacist:</label>
+                                    <select class="pure-input-1" id="rph" name="rph">
+                                        <option value="0">All</option>
+                                        <?php include_once('scripts/rphlist.php'); ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="pure-u-1-3">
+                                <div class="pure-control-group">
+                                    <label for="category">Category:</label>
+                                    <select class="pure-input-1" id="category" name="category">
+                                        <option value="0">All</option>
+                                        <?php include_once('scripts/categorylist.php'); ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <h5>Sort: <button id="sort">Show</button></h5>
+                        <div id="sortbox" class="pure-g-r collapsing shrunk">
+                            <div class="pure-u-1-4">
+                                <label for="sort1">First:</label>
+                                <select class="pure-input-1" id="sort1" name="sort1">
+                                    <option value="1">Newest To Oldest</option>
+                                    <option value="2">Oldest To Newest</option>
+                                    <option value="3">Nursing Home A-Z</option>
+                                    <option value="4">Pharmacist A-Z</option>
+                                    <option value="5">Sunday to Saturday</option>
+                                </select>
+                            </div>
+                            <div class="pure-u-1-4">
+                                <label for="sort2">Second:</label>
+                                <select class="pure-input-1" id="sort2" name="sort2">
+                                    <option value="0">None</option>
+                                    <option value="1">Newest To Oldest</option>
+                                    <option value="2">Oldest To Newest</option>
+                                    <option value="3">Nursing Home A-Z</option>
+                                    <option value="4">Pharmacist A-Z</option>
+                                    <option value="5">Sunday to Saturday</option>
+                                </select>
+                            </div>
+                            <div class="pure-u-1-4">
+                                <label for="sort3">Third:</label>
+                                <select class="pure-input-1" id="sort3" name="sort3">
+                                    <option value="0">None</option>
+                                    <option value="1">Newest To Oldest</option>
+                                    <option value="2">Oldest To Newest</option>
+                                    <option value="3">Nursing Home A-Z</option>
+                                    <option value="4">Pharmacist A-Z</option>
+                                    <option value="5">Sunday to Saturday</option>
+                                </select>
+                            </div>
+                            <div class="pure-u-1-4">
+                                <label for="sort4">Fourth:</label>
+                                <select class="pure-input-1" id="sort4" name="sort4">
+                                    <option value="0">None</option>
+                                    <option value="1">Newest To Oldest</option>
+                                    <option value="2">Oldest To Newest</option>
+                                    <option value="3">Nursing Home A-Z</option>
+                                    <option value="4">Pharmacist A-Z</option>
+                                    <option value="5">Sunday to Saturday</option>
+                                </select>
+                            </div>
                         </div>
                     </fieldset>
                 </form>
-                <div class=""
+                <div class="pure-g-r" id="datatable">
+                    
+                </div>
+                </div>
             </div>
         </div>
     </body>
