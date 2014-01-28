@@ -1007,13 +1007,8 @@ div{
 
 .info-visible{
     display: block;
-    padding: 15px 35px 15px 15px;
-    border: 1px solid #3355ba;
-    border-radius:4px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    background: #ced8f6;
-    color: #000;
+    padding:10px 5px;
+    background:#eee;
 }
 
 .info-close{
@@ -1108,10 +1103,20 @@ div{
     -webkit-transition: height 0.5s ease-in-out;
     -moz-transition: height 0.5s ease-in-out;
     -o-transition: height 0.5s ease-in-out;
+    max-height:150px;
 }
 
 .pure-skin-gmap .shrunk {
     overflow:hidden;
     height:1px;
     padding:0;
+}
+
+.borderbox {
+    border:1px solid #dedede;
+    padding: 5px;
+}
+
+.odd{
+    background-color:#dedede;
 }

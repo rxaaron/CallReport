@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="rsc/pure-min.css" />
         <link rel="stylesheet" href="rsc/pureskin.css" type="text/css" />
         <link rel="shortcut icon" href="rsc/favicon.ico" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <title>On Call: Reporting</title>
     </head>
     <body class="pure-skin-gmap">
@@ -71,7 +72,7 @@
                 <form class="pure-form pure-form-stacked">
                     <legend>Tables</legend>
                     <fieldset>
-                        <h5>Filters: <button id="filter">Show</button></h5>
+                        <h5>Filters: <i class="fa fa-plus-square-o" id="filter"></i></h5>
                         <div id="filterbox" class="pure-g-r collapsing shrunk">
                             <div class="pure-u-1-3">
                                 <label for="startdate">Start Date:</label>
@@ -123,56 +124,59 @@
                                 </div>
                             </div>
                         </div>
-                        <h5>Sort: <button id="sort">Show</button></h5>
+                        <h5>Sort: <i class="fa fa-plus-square-o" id="sort"></i></h5>
                         <div id="sortbox" class="pure-g-r collapsing shrunk">
                             <div class="pure-u-1-4">
                                 <label for="sort1">First:</label>
                                 <select class="pure-input-1" id="sort1" name="sort1">
-                                    <option value="1">Newest To Oldest</option>
-                                    <option value="2">Oldest To Newest</option>
-                                    <option value="3">Nursing Home A-Z</option>
-                                    <option value="4">Pharmacist A-Z</option>
-                                    <option value="5">Sunday to Saturday</option>
+                                    <option value="A.DateOfCall DESC">Newest To Oldest</option>
+                                    <option value="A.DateOfCall ASC">Oldest To Newest</option>
+                                    <option value="B.HomeName ASC">Nursing Home A-Z</option>
+                                    <option value="C.PharmName ASC">Pharmacist A-Z</option>
+                                    <option value="DayOfWeek(A.DateOfCall)">Sunday to Saturday</option>
                                 </select>
                             </div>
                             <div class="pure-u-1-4">
                                 <label for="sort2">Second:</label>
                                 <select class="pure-input-1" id="sort2" name="sort2">
                                     <option value="0">None</option>
-                                    <option value="1">Newest To Oldest</option>
-                                    <option value="2">Oldest To Newest</option>
-                                    <option value="3">Nursing Home A-Z</option>
-                                    <option value="4">Pharmacist A-Z</option>
-                                    <option value="5">Sunday to Saturday</option>
+                                    <option value="A.DateOfCall DESC">Newest To Oldest</option>
+                                    <option value="A.DateOfCall ASC">Oldest To Newest</option>
+                                    <option value="B.HomeName ASC">Nursing Home A-Z</option>
+                                    <option value="C.PharmName ASC">Pharmacist A-Z</option>
+                                    <option value="DayOfWeek(A.DateOfCall)">Sunday to Saturday</option>
                                 </select>
                             </div>
                             <div class="pure-u-1-4">
                                 <label for="sort3">Third:</label>
                                 <select class="pure-input-1" id="sort3" name="sort3">
                                     <option value="0">None</option>
-                                    <option value="1">Newest To Oldest</option>
-                                    <option value="2">Oldest To Newest</option>
-                                    <option value="3">Nursing Home A-Z</option>
-                                    <option value="4">Pharmacist A-Z</option>
-                                    <option value="5">Sunday to Saturday</option>
+                                    <option value="A.DateOfCall DESC">Newest To Oldest</option>
+                                    <option value="A.DateOfCall ASC">Oldest To Newest</option>
+                                    <option value="B.HomeName ASC">Nursing Home A-Z</option>
+                                    <option value="C.PharmName ASC">Pharmacist A-Z</option>
+                                    <option value="DayOfWeek(A.DateOfCall)">Sunday to Saturday</option>
                                 </select>
                             </div>
                             <div class="pure-u-1-4">
                                 <label for="sort4">Fourth:</label>
                                 <select class="pure-input-1" id="sort4" name="sort4">
                                     <option value="0">None</option>
-                                    <option value="1">Newest To Oldest</option>
-                                    <option value="2">Oldest To Newest</option>
-                                    <option value="3">Nursing Home A-Z</option>
-                                    <option value="4">Pharmacist A-Z</option>
-                                    <option value="5">Sunday to Saturday</option>
+                                    <option value="A.DateOfCall DESC">Newest To Oldest</option>
+                                    <option value="A.DateOfCall ASC">Oldest To Newest</option>
+                                    <option value="B.HomeName ASC">Nursing Home A-Z</option>
+                                    <option value="C.PharmName ASC">Pharmacist A-Z</option>
+                                    <option value="DayOfWeek(A.DateOfCall)">Sunday to Saturday</option>
                                 </select>
                             </div>
                         </div>
                     </fieldset>
                 </form>
-                <div class="pure-g-r" id="datatable">
-                    
+                <div class="pure-g-r">
+                    <button id="tablerefresh" class="pure-button-primary"><i class="fa fa-refresh"></i> Refresh</button>
+                    <div id="datatable" class="pure-u-1">
+                            
+                    </div>                   
                 </div>
                 </div>
             </div>

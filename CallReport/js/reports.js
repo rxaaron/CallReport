@@ -1,4 +1,5 @@
         AddListeners();
+        GenerateTable();
         
         function AddListeners(){
             document.getElementById('reportlist').addEventListener('change',Chart,false);
@@ -9,14 +10,45 @@
             }
             document.getElementById('filter').addEventListener('click',ShowHide,false);
             document.getElementById('sort').addEventListener('click',ShowHide,false);
-        };        
+            document.getElementById('tablerefresh').addEventListener('click',GenerateTable,false);
+        };
+        function GenerateTable(event){
+            var xmlhttp;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open('POST','scripts/chart_builder.php',false);
+            xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+            var args;
+            args = 'startdate='+document.getElementById('startdate').value + '&enddate='+document.getElementById('enddate').value;
+            var radios = document.getElementsByName('faults');
+            for(var i = 0, length = radios.length; i < length; i++){
+                if(radios[i].checked){
+                    args = args + '&fault=' + radios[i].value;
+                }
+            }
+            args = args + '&nursinghome=' + document.getElementById('nursinghome').value + '&rph=' + document.getElementById('rph').value + '&category=' + document.getElementById('category').value + '&sort1=' + document.getElementById('sort1').value + '&sort2=' + document.getElementById('sort2').value + '&sort3=' + document.getElementById('sort3').value + '&sort4=' + document.getElementById('sort4').value;
+            xmlhttp.send(args);
+            document.getElementById('datatable').innerHTML=xmlhttp.responseText;
+            var dtlbtns = document.getElementsByName('detailbtn');
+            for(var i = 0, length = dtlbtns.length; i < length; i++){
+                document.getElementById(dtlbtns[i].id).addEventListener('click',DetailToggle,false);
+            }
+        };
+        function DetailToggle(event){
+            var dtldiv = document.getElementById(this.value);
+            if(dtldiv.className==='pure-u-1 info-hidden'){
+                dtldiv.className='pure-u-1 info-visible';
+            }else{
+                dtldiv.className='pure-u-1 info-hidden';
+            }
+            event.preventDefault();
+        }
         function ShowHide(event){
             var boxname = this.id + 'box';
-            if(this.innerHTML==='Show'){
-                this.innerHTML='Hide';
+            if(this.className ==='fa fa-plus-square-o'){
+                this.className ='fa fa-minus-square-o';
                 document.getElementById(boxname).className='pure-g-r collapsing';
             }else{
-                this.innerHTML='Show';
+                this.className = 'fa fa-plus-square-o';
                 document.getElementById(boxname).className='pure-g-r collapsing shrunk';
             }
             event.preventDefault();
