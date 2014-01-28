@@ -1096,6 +1096,7 @@ div{
 }
 
 .pure-skin-gmap .collapsing {
+    overflow:hidden;
     padding:5px;
     border: 1px solid gray;
     border-radius:5px;
@@ -1103,13 +1104,18 @@ div{
     -webkit-transition: height 0.5s ease-in-out;
     -moz-transition: height 0.5s ease-in-out;
     -o-transition: height 0.5s ease-in-out;
-    max-height:150px;
+    height:150px;
 }
 
 .pure-skin-gmap .shrunk {
     overflow:hidden;
     height:1px;
     padding:0;
+    transition: height 0.5s ease-in-out;
+    -webkit-transition: height 0.5s ease-in-out;
+    -moz-transition: height 0.5s ease-in-out;
+    -o-transition: height 0.5s ease-in-out;
+    
 }
 
 .borderbox {

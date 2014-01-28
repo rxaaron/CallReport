@@ -126,7 +126,7 @@
                         </div>
                         <h5>Sort: <i class="fa fa-plus-square-o" id="sort"></i></h5>
                         <div id="sortbox" class="pure-g-r collapsing shrunk">
-                            <div class="pure-u-1-4">
+                            <div class="pure-u-1-2">
                                 <label for="sort1">First:</label>
                                 <select class="pure-input-1" id="sort1" name="sort1">
                                     <option value="A.DateOfCall DESC">Newest To Oldest</option>
@@ -136,7 +136,7 @@
                                     <option value="DayOfWeek(A.DateOfCall)">Sunday to Saturday</option>
                                 </select>
                             </div>
-                            <div class="pure-u-1-4">
+                            <div class="pure-u-1-2">
                                 <label for="sort2">Second:</label>
                                 <select class="pure-input-1" id="sort2" name="sort2">
                                     <option value="0">None</option>
@@ -147,7 +147,7 @@
                                     <option value="DayOfWeek(A.DateOfCall)">Sunday to Saturday</option>
                                 </select>
                             </div>
-                            <div class="pure-u-1-4">
+                            <div class="pure-u-1-2">
                                 <label for="sort3">Third:</label>
                                 <select class="pure-input-1" id="sort3" name="sort3">
                                     <option value="0">None</option>
@@ -158,7 +158,7 @@
                                     <option value="DayOfWeek(A.DateOfCall)">Sunday to Saturday</option>
                                 </select>
                             </div>
-                            <div class="pure-u-1-4">
+                            <div class="pure-u-1-2">
                                 <label for="sort4">Fourth:</label>
                                 <select class="pure-input-1" id="sort4" name="sort4">
                                     <option value="0">None</option>
